@@ -1,0 +1,148 @@
+body{
+	margin:0px;
+	background-color:#F3F3F5;
+	font-family:Arial, "MS Trebuchet", sans-serif;
+}
+
+.hidden{
+	display:none;
+}
+
+.clear{
+	clear:both;
+}
+
+h5 {
+	margin:0;
+	font-variant: small-caps;
+	font-size:14px;
+}
+
+/* Main Layout */
+
+#page {
+	width: 1000px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+
+#topnavi{
+	position:fixed;
+	top:0px;
+	z-index:100;
+}
+
+#pageContent {
+	margin-top:80px;
+}
+
+/* Top Navigation */
+
+.navipart {
+	float: left;
+}
+
+.navipart .mainnavi{
+	background-color: #F3F3F5;
+	padding-right: 16px;
+	padding-top: 12px;
+	width:150px;
+	font-family: serif;
+}
+
+.navilink {
+	display:block;	
+	height: 37px;
+	border-bottom:1px solid #0000FF;
+	text-align:center;
+	font-variant: small-caps;
+	color:#0000FF;
+	font-size: 1.2em;
+	line-height:26px;
+	cursocursor: pointer;
+}
+
+.navipart.active .navilink,
+.navilink.hover {
+	color:#ffffff;
+	background-color:#000000;
+}
+
+.subnavi {
+	background-color:#FDFF00;
+	margin-top: -1px;
+	font-family: Arial;
+	width:150px;
+}
+
+.subnavi .entry {
+	padding:10px;
+	clear:both;
+}
+
+.subnavi .entry .textinput {
+	width:95%;
+}
+
+.subnavi .entry .button {
+	float:right;
+}
+
+.subnavi hr{
+	border-color:#413DC1;
+	border-width:0px 0px 1px 0px;
+	border-style: solid;
+	margin:0px;
+	clear:both;
+}
+
+.subnavi .entry p{
+	color:#4B4B49;
+	font-size:12px;
+	color:#1E161A;
+	margin:0;	
+}
+
+.subnavi .entry h5 {
+	color:#413DC1;
+}
+
+/* Image Board */
+.imagerow {
+	float: left;
+	margin-right: 16px;
+  overflow: hidden;
+	width: 316px;
+}
+
+.imagerow .imagebox {
+	margin-bottom:8px;
+}
+
+.imagerow .imagebox .contentWrapper{
+	position:absolute;
+	width:316px;
+}
+
+.imagerow .imagebox .content{
+	background:rgba(255, 255, 255, 0.6);
+	position:absolute;
+	margin: 5px;
+	overflow-y: scroll;
+}
+
+.imagerow .imagebox .entry {
+	padding:15px;
+}
+
+.imagerow .imagebox .entry .date{
+	font-size:10px;
+	color:#747474;
+}
+
+.imagerow .imagebox .entry p{
+	font-size:12px;
+	margin:0;
+}

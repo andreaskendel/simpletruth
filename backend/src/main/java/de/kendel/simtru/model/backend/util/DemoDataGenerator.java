@@ -39,6 +39,11 @@ public class DemoDataGenerator {
 		return user;
 	}
 	
+	public User createNewUser()
+	{
+		return createNewUser("TestUser");
+	}
+	
 	public String createRandomText()
 	{
 		return null;

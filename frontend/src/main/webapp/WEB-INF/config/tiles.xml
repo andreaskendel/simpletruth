@@ -2,23 +2,24 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
-       
+
 <tiles-definitions>
 
 	<definition name="baseLayout" template="/WEB-INF/jsp/layout/mainLayout.jsp">
 		<put-attribute name="title" value="Simple Truth" />
 		<put-attribute name="navigation" value="baseLayout.navigation" />
 	</definition>
-	
-	<definition name="baseLayout.navigation" preparer="de.kendel.simtru.frontend.viewpreparer.NavigationPreparer">
-  		<put-attribute name="navigation" value="/WEB-INF/jsp/layout/navigation.jsp" />
-	</definition> 	
+
+	<definition name="baseLayout.navigation" template="/WEB-INF/jsp/layout/navigation.jsp"
+		preparer="de.kendel.simtru.frontend.viewpreparer.NavigationPreparer">
+	</definition>
 
 	<definition name="imageboard" extends="baseLayout">
 		<put-attribute name="title" value="Simple Truth - ImageBoard" />
-		<put-attribute name="content" value="/WEB-INF/jsp/imageboard/imageboard.jsp" />
+		<put-attribute name="content"
+			value="/WEB-INF/jsp/imageboard/imageboard.jsp" />
 	</definition>
-	
+
 	<definition name="home" extends="baseLayout">
 		<put-attribute name="title" value="Simple Truth - Home" />
 		<put-attribute name="content" value="/WEB-INF/jsp/home/home.jsp" />

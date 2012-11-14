@@ -5,6 +5,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.joda.time.DateTime;
+
+import de.kendel.simtru.model.backend.domain.Comment;
+import de.kendel.simtru.model.backend.domain.ImageThread;
 import de.kendel.simtru.model.backend.domain.User;
 
 public class DemoDataGenerator {
@@ -39,13 +44,37 @@ public class DemoDataGenerator {
 		return user;
 	}
 	
-	public User createNewUser()
+	public Comment createRandomComment()
 	{
-		return createNewUser("TestUser");
+		Comment comment = new Comment();
+		comment.setCreatedBy(getRandomUser());
+		comment.setText(createRandomText(random.nextInt(20) * 3));
+		DateTime createDate = new DateTime();
+		createDate.minusDays(random.nextInt(30));
+		createDate.minusHours(random.nextInt(13));
+		comment.setCreatedDate(createDate);
+		return comment;
 	}
 	
-	public String createRandomText()
+	public ImageThread createRandomThread()
 	{
-		return null;
+		ImageThread imageThread = new ImageThread();
+		imageThread.setComments(new ArrayList<Comment>());
+		DateTime createDate = new DateTime();
+		createDate.minusDays(random.nextInt(30));
+		createDate.minusHours(random.nextInt(13));
+		imageThread.setCreatedDate(createDate);
+		imageThread.setCreatedBy(getRandomUser());
+		
+		for (int i = 0; i < random.nextInt(10); i++)
+		{
+			imageThread.getComments().add(createRandomComment());
+		}
+		return imageThread;
+	}
+	
+	public String createRandomText(int length)
+	{
+		return RandomStringUtils.randomAlphanumeric(length);
 	}
 }

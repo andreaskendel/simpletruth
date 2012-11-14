@@ -6,6 +6,6 @@ import de.kendel.simtru.model.backend.domain.ImageThread;
 
 public interface ImageThreadService {
 
-	List<ImageThread> getTeaserImageThreads (int Limit);
+	List<ImageThread> getTeaserImageThreads (int limit);
 	
 }

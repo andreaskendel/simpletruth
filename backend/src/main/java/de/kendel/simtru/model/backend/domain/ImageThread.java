@@ -3,9 +3,10 @@ package de.kendel.simtru.model.backend.domain;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.jpa.domain.AbstractAuditable;
 
 @Entity
@@ -14,6 +15,8 @@ public class ImageThread extends AbstractAuditable<User, Long>{
 	private static final long serialVersionUID = -6170773589649899169L;
 	
 	private String title;
+	
+	@OneToMany
 	private List<Comment> comments;
 	
 	public String getTitle() {

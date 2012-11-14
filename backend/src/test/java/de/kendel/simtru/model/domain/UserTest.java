@@ -22,7 +22,7 @@ public class UserTest {
 	
 	@Test
 	public void testToString() {
-		User user = testDataGenerator.createNewUser();
+		User user = testDataGenerator.createNewUser("toString Testuser");
 		logger.debug("testToString - {}", user.toString());
 	}
 

@@ -1,9 +1,10 @@
 package de.kendel.simtru.model.backend.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.jpa.domain.AbstractAuditable;
 
 @Entity
@@ -11,18 +12,10 @@ import org.springframework.data.jpa.domain.AbstractAuditable;
 public class Comment extends AbstractAuditable<User, Long>{
 	private static final long serialVersionUID = -5633684593452766951L;
 	
-	private User owner;
+	@ManyToOne
 	private ImageThread thread;
 	private String text;
 	private byte[] image;
-	
-	public User getOwner() {
-		return owner;
-	}
-	
-	public void setOwner(User owner) {
-		this.owner = owner;
-	}
 	
 	public ImageThread getThread() {
 		return thread;

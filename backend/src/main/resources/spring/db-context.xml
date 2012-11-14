@@ -7,7 +7,8 @@ http://www.springframework.org/schema/data/jpa http://www.springframework.org/sc
 
 	<import resource="classpath:/spring/jpa-infrastructure.xml" />
 
-	<jpa:repositories base-package="de.kendel.simtru.model.repositories" />
+	<jpa:repositories base-package="de.kendel.simtru.model.backend.repositories" />
+	
 </beans>
 
 

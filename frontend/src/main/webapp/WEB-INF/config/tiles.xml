@@ -5,24 +5,39 @@
 
 <tiles-definitions>
 
-	<definition name="baseLayout" template="/WEB-INF/jsp/layout/mainLayout.jsp">
+	<definition name="baseLayout" template="/WEB-INF/jsp/layout.jsp">
 		<put-attribute name="title" value="Simple Truth" />
-		<put-attribute name="navigation" value="baseLayout.navigation" />
-	</definition>
-
-	<definition name="baseLayout.navigation" template="/WEB-INF/jsp/layout/navigation.jsp"
-		preparer="de.kendel.simtru.frontend.viewpreparer.NavigationPreparer">
-	</definition>
-
-	<definition name="imageboard" extends="baseLayout">
-		<put-attribute name="title" value="Simple Truth - ImageBoard" />
-		<put-attribute name="content"
-			value="/WEB-INF/jsp/imageboard/imageboard.jsp" />
+		<put-attribute name="navigation" value="/WEB-INF/jsp/navigation/main.jsp" />
+		<put-list-attribute name="css">
+			<add-attribute value="stylesheet"/>
+		</put-list-attribute>
+		<put-list-attribute name="js">
+			<add-attribute value="jsLibrary"/>
+			<add-attribute value="jsSimtru"/>
+		</put-list-attribute>
 	</definition>
 
 	<definition name="home" extends="baseLayout">
 		<put-attribute name="title" value="Simple Truth - Home" />
 		<put-attribute name="content" value="/WEB-INF/jsp/home/home.jsp" />
+	</definition>
+
+	<definition name="imageboard" extends="baseLayout">
+		<put-attribute name="title" value="Simple Truth - ImageBoard" />
+		<put-attribute name="content"
+			value="/WEB-INF/jsp/imageboard/main.jsp" />
+	</definition>
+
+	<definition name="timeline" extends="baseLayout">
+		<put-attribute name="title" value="Simple Truth - TimeLine" />
+		<put-attribute name="content"
+			value="/WEB-INF/jsp/timeline/main.jsp" />
+	</definition>
+	
+	<definition name="about" extends="baseLayout">
+		<put-attribute name="title" value="Simple Truth - TimeLine" />
+		<put-attribute name="content"
+			value="/WEB-INF/jsp/about/main.jsp" />
 	</definition>
 
 </tiles-definitions>

@@ -5,17 +5,18 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.joda.time.DateTime;
 
 import de.kendel.simtru.model.backend.domain.Comment;
-import de.kendel.simtru.model.backend.domain.ImageThread;
+import de.kendel.simtru.model.backend.domain.Discussion;
 import de.kendel.simtru.model.backend.domain.User;
+import de.svenjacobs.loremipsum.LoremIpsum;
 
 public class DemoDataGenerator {
 	
 	List<User> userList = new ArrayList<User>();
 	Random random = new Random();
+	private LoremIpsum loremIpsum = new LoremIpsum();
 	
 	public DemoDataGenerator() {
 		userList.add(createNewUser("Thomas Gurde"));
@@ -36,7 +37,7 @@ public class DemoDataGenerator {
 
 	public User createNewUser(String displayName)
 	{
-		User user = new User();
+		User user = new User(random.nextLong());
 		user.setDisplayName(displayName);
 		user.setUserName(displayName.toLowerCase().replaceAll(" ", ""));
 		user.setPassword("geheim");
@@ -46,9 +47,9 @@ public class DemoDataGenerator {
 	
 	public Comment createRandomComment()
 	{
-		Comment comment = new Comment();
+		Comment comment = new Comment(random.nextLong());
 		comment.setCreatedBy(getRandomUser());
-		comment.setText(createRandomText(random.nextInt(20) * 3));
+		comment.setText(createRandomText());
 		DateTime createDate = new DateTime();
 		createDate.minusDays(random.nextInt(30));
 		createDate.minusHours(random.nextInt(13));
@@ -56,25 +57,24 @@ public class DemoDataGenerator {
 		return comment;
 	}
 	
-	public ImageThread createRandomThread()
+	private String createRandomText() {
+		return loremIpsum.getParagraphs(1);
+	}
+
+	public Discussion createRandomDiscussion()
 	{
-		ImageThread imageThread = new ImageThread();
-		imageThread.setComments(new ArrayList<Comment>());
+		Discussion discussion = new Discussion(random.nextLong());
+		discussion.setComments(new ArrayList<Comment>());
 		DateTime createDate = new DateTime();
 		createDate.minusDays(random.nextInt(30));
 		createDate.minusHours(random.nextInt(13));
-		imageThread.setCreatedDate(createDate);
-		imageThread.setCreatedBy(getRandomUser());
+		discussion.setCreatedDate(createDate);
+		discussion.setCreatedBy(getRandomUser());
 		
 		for (int i = 0; i < random.nextInt(10); i++)
 		{
-			imageThread.getComments().add(createRandomComment());
+			discussion.getComments().add(createRandomComment());
 		}
-		return imageThread;
-	}
-	
-	public String createRandomText(int length)
-	{
-		return RandomStringUtils.randomAlphanumeric(length);
+		return discussion;
 	}
 }

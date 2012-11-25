@@ -10,14 +10,23 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.jpa.domain.AbstractAuditable;
 
 @Entity
-@Table(name="simtru_imagethread")
-public class ImageThread extends AbstractAuditable<User, Long>{
+@Table(name="simtru_discussion")
+public class Discussion extends AbstractAuditable<User, Long>{
 	private static final long serialVersionUID = -6170773589649899169L;
 	
 	private String title;
 	
 	@OneToMany
 	private List<Comment> comments;
+	
+	public Discussion()
+	{
+	}
+	
+	public Discussion(Long id)
+	{
+		setId(id);
+	}
 	
 	public String getTitle() {
 		return title;

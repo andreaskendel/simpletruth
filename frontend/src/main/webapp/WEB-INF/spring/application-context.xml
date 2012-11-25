@@ -6,5 +6,8 @@
 
 	<import resource="mvc-context.xml"/>
 	
-	<bean class="de.kendel.simtru.model.backend.services.impl.demo.ImageThreadDemoService" />
+	<bean class="de.kendel.simtru.model.backend.services.impl.demo.DiscussionDemoService" />
+	<bean class="de.kendel.simtru.model.backend.services.impl.demo.CommentDemoService" />
+	
+	<bean id="topCommentsPreparer" class="de.kendel.simtru.frontend.viewpreparer.TopCommentsPreparer" />
 </beans>

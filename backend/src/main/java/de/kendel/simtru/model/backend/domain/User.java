@@ -21,6 +21,14 @@ public class User extends AbstractAuditable<User, Long>{
 	
 	@Temporal(TemporalType.DATE)
 	private Date lastLogin;
+	
+	public User() {
+	}
+	
+	public User(Long id)
+	{
+		setId(id);
+	}
 
 	public String getDisplayName() {
 		return displayName;

@@ -7,6 +7,13 @@
 	<mvc:annotation-driven />
 	<context:component-scan base-package="de.kendel.simtru.frontend.controller" />
 
+	<mvc:interceptors>
+		<bean
+			class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">
+			<property name="entityManagerFactory" ref="entityManagerFactory" />
+		</bean>
+	</mvc:interceptors>
+
 	<!-- Resources and Themes -->
 	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
 
@@ -20,6 +27,13 @@
 		<property name="defaultThemeName" value="classic" />
 	</bean>
 
+	<!-- Configure the multipart resolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- maximum file size in bytes -->
+		<property name="maxUploadSize" value="100000" />
+	</bean>
+
 	<!-- Apache Tiles -->
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
@@ -29,7 +43,7 @@
 			</list>
 		</property>
 		<property name="preparerFactoryClass"
-      value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory" />
+			value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory" />
 	</bean>
 
 	<bean id="tilesViewResolver"
@@ -37,4 +51,8 @@
 		<property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles2.TilesView" />
 	</bean>
+
+	<bean id="topCommentsPreparer"
+		class="de.kendel.simtru.frontend.viewpreparer.TopCommentsPreparer" />
+
 </beans>

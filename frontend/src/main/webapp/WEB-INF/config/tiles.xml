@@ -9,11 +9,14 @@
 		<put-attribute name="title" value="Simple Truth" />
 		<put-attribute name="navigation" value="/WEB-INF/jsp/navigation/main.jsp" />
 		<put-list-attribute name="css">
+			<add-attribute value="jQueryUi"/>
 			<add-attribute value="stylesheet"/>
 		</put-list-attribute>
+		
 		<put-list-attribute name="js">
-			<add-attribute value="jsLibrary"/>
-			<add-attribute value="jsSimtru"/>
+			<add-attribute value="/resources/js/jquery-1.8.2.min.js"/>
+			<add-attribute value="/resources/js/jquery-ui-1.9.2.custom.min.js"/>
+			<add-attribute value="/resources/js/simtru.js"/>
 		</put-list-attribute>
 	</definition>
 
@@ -38,6 +41,13 @@
 		<put-attribute name="title" value="Simple Truth - TimeLine" />
 		<put-attribute name="content"
 			value="/WEB-INF/jsp/about/main.jsp" />
+	</definition>
+	
+	<definition name="modalLayout" template="/WEB-INF/jsp/modal.jsp" />
+	
+	<definition name="crop" extends="modalLayout">
+		<put-attribute name="title" value="Crop Image" />
+		<put-attribute name="content" value="/WEB-INF/jsp/upload/crop.jsp" />
 	</definition>
 
 </tiles-definitions>

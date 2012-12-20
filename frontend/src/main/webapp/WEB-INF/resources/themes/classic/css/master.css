@@ -147,3 +147,12 @@ h5 {
 	font-size:12px;
 	margin:0;
 }
+
+/* Modal Window*/
+.ui-dialog {
+	font-size:12px
+}
+
+#modal {
+	font-size:12px;
+}

@@ -2,31 +2,24 @@ package de.kendel.simtru.model.backend.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.hibernate.annotations.IndexColumn;
 import org.springframework.data.jpa.domain.AbstractAuditable;
 
 @Entity
-@Table(name="simtru_discussion")
+@Table(name="discussion")
 public class Discussion extends AbstractAuditable<User, Long>{
 	private static final long serialVersionUID = -6170773589649899169L;
 	
 	private String title;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private List<Comment> comments;
-	
-	public Discussion()
-	{
-	}
-	
-	public Discussion(Long id)
-	{
-		setId(id);
-	}
 	
 	public String getTitle() {
 		return title;

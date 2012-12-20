@@ -25,8 +25,8 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
-
-	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<bean id="sessionFactory" factory-bean="entityManagerFactory" factory-method="getSessionFactory" />
 
 	<jdbc:embedded-database id="dataSource" type="H2" />
 </beans>

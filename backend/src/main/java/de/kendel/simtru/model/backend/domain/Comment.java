@@ -1,5 +1,6 @@
 package de.kendel.simtru.model.backend.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -9,7 +10,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.jpa.domain.AbstractAuditable;
 
 @Entity
-@Table(name="simtru_user")
+@Table(name="comment")
 public class Comment extends AbstractAuditable<User, Long>{
 	private static final long serialVersionUID = -5633684593452766951L;
 	
@@ -17,17 +18,8 @@ public class Comment extends AbstractAuditable<User, Long>{
 	private Discussion discussion;
 	private String text;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Image image;
-	
-	public Comment()
-	{
-	}
-	
-	public Comment(Long id)
-	{
-		setId(id);
-	}
 	
 	public Discussion getDiscussion() {
 		return discussion;

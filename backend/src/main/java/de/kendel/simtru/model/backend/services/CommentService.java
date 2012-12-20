@@ -6,4 +6,5 @@ import de.kendel.simtru.model.backend.domain.Comment;
 
 public interface CommentService {
 	List<Comment> getTeaserComments (int limit);
+	Comment find(Long commentId);
 }

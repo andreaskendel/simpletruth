@@ -6,7 +6,6 @@ import org.apache.tiles.preparer.ViewPreparer;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import de.kendel.simtru.model.backend.services.CommentService;
-import de.kendel.simtru.model.backend.services.DiscussionService;
 
 public class TopCommentsPreparer implements ViewPreparer {
 

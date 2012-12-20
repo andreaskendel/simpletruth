@@ -10,32 +10,28 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
-<tiles:importAttribute name="css"/>
+<!-- include Stylesheet -->
+<tiles:importAttribute name="css" />
 <c:forEach items="${css}" var="cssName">
-	<c:set var="cssPath">
-		<spring:theme code="${cssName}" />
-	</c:set>
-	<c:set var="cssUrl">
-		<spring:url value="${cssPath}" />
-	</c:set>
+	<spring:theme code="${cssName}" var="cssPath" />
+	<spring:url value="${cssPath}" var="cssUrl" />
 	<link rel="stylesheet" href="${cssUrl}" type="text/css" charset="utf-8" />
 </c:forEach>
 
-<tiles:importAttribute name="js"/>
-<c:forEach items="${js}" var="jsName">
-	<c:set var="jsPath">
-		<spring:theme code="${jsName}" />
-	</c:set>
-	<c:set var="jsUrl">
-		<spring:url value="${jsPath}" />
-	</c:set>
+<!-- include Javascript -->
+<tiles:importAttribute name="js" />
+<c:forEach items="${js}" var="jsPath">
+	<spring:url value="${jsPath}" var="jsUrl" />
 	<script src="${jsUrl}" type="text/javascript" charset="utf-8">
+		
 	</script>
 </c:forEach>
 
+<!-- Title -->
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 </head>
 
+<!-- Body -->
 <body>
 	<div id="page">
 		<div id="topnavi">

@@ -3,19 +3,19 @@
 
 <div>timeline</div>
 
-<c:forEach var="comment" items="${discussion.comments}">
+<c:forEach var="currComment" items="${discussion.comments}" varStatus="status">
 	<c:choose>
 		<c:when
-			test="${comment.id eq editComment.id}">
+			test="${currComment.id eq editComment.comment.id}">
 			<tiles:insertTemplate template="edit.jsp">
-				<tiles:putAttribute name="comment" value="${editComment}" />
+				<tiles:putAttribute name="editComment" value="${editComment}" />
 			</tiles:insertTemplate>
 		</c:when>
 		<c:otherwise>
 			<tiles:insertTemplate template="comment.jsp">
-				<tiles:putAttribute name="comment" value="${comment}" />
+				<tiles:putAttribute name="currComment" value="${currComment}" />
+				<tiles:putAttribute name="isLast" value="${status.last}" />
 			</tiles:insertTemplate>
 		</c:otherwise>
 	</c:choose>
-
 </c:forEach>
